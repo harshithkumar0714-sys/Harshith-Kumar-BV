@@ -1,10 +1,12 @@
 # Harshith-Kumar-BV
-/*
- * ============================================================
- *  2D Graphics Editor — C Implementation
- *  Canvas: 2D char array filled with '_', objects drawn with '*'
- * ============================================================
- */
+<!-- functions to draw a circle, rectangle, line, and triangle.
+And are able to:
+      add objects to the picture,
+      delete objects from the picture, and
+       modify objects in the picture.
+Used a 2d array of characters to store the picture.
+Written a function to display the picture. -->
+
 
 #include <stdio.h>
 #include <stdlib.h>
