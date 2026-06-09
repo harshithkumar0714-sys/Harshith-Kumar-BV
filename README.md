@@ -1,9 +1,9 @@
 # Harshith-Kumar-BV
 <!-- functions to draw a circle, rectangle, line, and triangle.
-And are able to:
+<!-- And are able to:
       add objects to the picture,
-      delete objects from the picture, and
-       modify objects in the picture.
+      delete objects from the picture, 
+       modify objects in the picture. -->
 Used a 2d array of characters to store the picture.
 Written a function to display the picture. -->
 
@@ -41,9 +41,9 @@ static Object objects[MAX_OBJECTS];
 static int    obj_count  = 0;
 static int    next_id    = 1;
 
-/* ═══════════════════════════════════════════════════════════
- *  Canvas helpers
- * ═══════════════════════════════════════════════════════════ */
+
+ <!-- *  Canvas helpers -->
+
 void canvas_clear(void) {
     for (int r = 0; r < ROWS; r++)
         for (int c = 0; c < COLS; c++)
@@ -69,9 +69,9 @@ static void plot(int r, int c) {
         canvas[r][c] = DRAW;
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  Bresenham line
- * ═══════════════════════════════════════════════════════════ */
+
+ <!-- *  Bresenham line -->
+
 static void draw_line_raw(int x0, int y0, int x1, int y1) {
     int dx = abs(x1 - x0), dy = abs(y1 - y0);
     int sx = (x0 < x1) ? 1 : -1;
@@ -86,9 +86,8 @@ static void draw_line_raw(int x0, int y0, int x1, int y1) {
     }
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  Draw primitives (write directly onto canvas)
- * ═══════════════════════════════════════════════════════════ */
+ <!-- *  Draw primitives (write directly onto canvas) -->
+
 void draw_circle(int cx, int cy, int r) {
     /* Midpoint circle algorithm */
     int x = 0, y = r, d = 1 - r;
@@ -118,9 +117,9 @@ void draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
     draw_line_raw(x3, y3, x1, y1);
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  Redraw all active objects onto a fresh canvas
- * ═══════════════════════════════════════════════════════════ */
+/* 
+ <!-- *  Redraw all active objects onto a fresh canvas -->
+ 
 static void redraw_all(void) {
     canvas_clear();
     for (int i = 0; i < obj_count; i++) {
@@ -135,9 +134,8 @@ static void redraw_all(void) {
     }
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  Add object
- * ═══════════════════════════════════════════════════════════ */
+ <!-- *  Add object -->
+
 static int add_object(ObjType t, int x, int y,
                       int p1, int p2, int p3, int p4) {
     if (obj_count >= MAX_OBJECTS) {
@@ -155,9 +153,8 @@ static int add_object(ObjType t, int x, int y,
     return o->id;
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  Delete object by ID
- * ═══════════════════════════════════════════════════════════ */
+ <!-- *  Delete object by ID -->
+
 void delete_object(int id) {
     for (int i = 0; i < obj_count; i++) {
         if (objects[i].id == id) {
@@ -171,9 +168,8 @@ void delete_object(int id) {
     printf("Object #%d not found.\n", id);
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  Modify object by ID
- * ═══════════════════════════════════════════════════════════ */
+ <!-- *  Modify object by ID -->
+
 void modify_object(int id, int x, int y, int p1, int p2, int p3, int p4) {
     for (int i = 0; i < obj_count; i++) {
         if (objects[i].id == id) {
@@ -189,9 +185,8 @@ void modify_object(int id, int x, int y, int p1, int p2, int p3, int p4) {
     printf("Object #%d not found.\n", id);
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  List objects
- * ═══════════════════════════════════════════════════════════ */
+ <!-- *  List objects -->
+
 void list_objects(void) {
     const char *names[] = {"", "Circle", "Rectangle", "Line", "Triangle"};
     printf("\n%-5s %-12s %s\n", "ID", "Type", "Parameters");
@@ -218,9 +213,8 @@ void list_objects(void) {
     printf("\n");
 }
 
-/* ═══════════════════════════════════════════════════════════
- *  Menu-driven main
- * ═══════════════════════════════════════════════════════════ */
+ <!-- *  Menu-driven main -->
+
 static void print_menu(void) {
     printf("┌─────────────────────────────────────┐\n");
     printf("│       2D GRAPHICS EDITOR            │\n");
